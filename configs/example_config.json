@@ -1,0 +1,174 @@
+{
+    "experiment_name": "reproducing-results",
+    "trial_name": "reproducing-config",
+    "data_folder": "data/processed-dataset/",
+    "output_root_folder": "data/",
+    "model_name": "unet",
+    "note": "This is a config file the same as the one used in the paper.",
+    "subjects_to_exclude": [],
+    "leave_one_out_subject": null,
+    "training_config": {
+        "class_name": "TrainingConfig",
+        "data": {
+            "epochs": 10,
+            "init_lr": 0.01,
+            "loss_fn_names": [
+                "masked_mse",
+                "padded_spectral"
+            ],
+            "loss_params": {
+                "cutoff_frequency": 0.05
+            },
+            "loss_weight_scheduler": null,
+            "loss_weights": [
+                1,
+                10
+            ],
+            "lr_scheduler": "plateau",
+            "train_crop": [
+                0.0,
+                0.9
+            ],
+            "valid_crop": [
+                0.9,
+                1.0
+            ]
+        }
+    },
+    "model_config": {
+        "class_name": "UNetConfig",
+        "data": {
+            "activation_type": "relu6",
+            "decoder_hidden_dims": [
+                [
+                    128,
+                    64
+                ],
+                [
+                    64,
+                    64,
+                    32
+                ],
+                [
+                    32,
+                    32
+                ]
+            ],
+            "decoder_kernel_sizes": [
+                [
+                    3,
+                    5
+                ],
+                [
+                    5,
+                    5,
+                    5
+                ],
+                [
+                    7,
+                    13
+                ]
+            ],
+            "enable_separable": true,
+            "encoder_decoder_pool_sizes": [
+                4,
+                2,
+                2
+            ],
+            "encoder_hidden_dims": [
+                [
+                    64
+                ],
+                [
+                    64
+                ],
+                [
+                    128
+                ]
+            ],
+            "encoder_kernel_sizes": [
+                [
+                    7
+                ],
+                [
+                    5
+                ],
+                [
+                    3
+                ]
+            ],
+            "input_processing_activation_type": "relu6",
+            "input_processing_hidden_dims": [
+                64,
+                128,
+                64
+            ],
+            "input_processing_type": "mlp",
+            "normalization_type": "instance",
+            "output_activation": "sigmoid",
+            "output_processing_type": "direct",
+            "process_skip_connection": true
+        }
+    },
+    "dataset_configs": [
+        {
+            "class_name": "BlinkDatasetConfig",
+            "data": {
+                "augmentation": [
+                    "right",
+                    "left"
+                ],
+                "augmentation_ratio": 0.5,
+                "batch_size": 64,
+                "curve_name": "projected_blink_ratio",
+                "curve_processing_protocol": [],
+                "dataset_processing_protocol": [
+                    "range-querying-fft",
+                    "low-pass-filtering",
+                    "diff",
+                    "normalization"
+                ],
+                "event_detector": "fsm",
+                "modality": "real-imaginary",
+                "normalize_window": 30000,
+                "onsite_processing_protocol": [],
+                "random_margin": 0,
+                "resizing_method": "pad",
+                "sample_non_blinks": [
+                    "event-no-expand"
+                ],
+                "sampler_type": "blink",
+                "seed": 1234,
+                "shuffle": true,
+                "uniform_length": 1024
+            }
+        },
+        {
+            "class_name": "BlinkDatasetConfig",
+            "data": {
+                "augmentation": [],
+                "augmentation_ratio": 0.5,
+                "batch_size": 64,
+                "curve_name": "projected_blink_ratio",
+                "curve_processing_protocol": [],
+                "dataset_processing_protocol": [
+                    "range-querying-fft",
+                    "low-pass-filtering",
+                    "diff",
+                    "normalization"
+                ],
+                "event_detector": "fsm",
+                "modality": "real-imaginary",
+                "normalize_window": 30000,
+                "onsite_processing_protocol": [],
+                "random_margin": 0,
+                "resizing_method": "pad",
+                "sample_non_blinks": [],
+                "sampler_type": "blink",
+                "seed": 1234,
+                "shuffle": true,
+                "uniform_length": 1024
+            }
+        }
+    ]
+}

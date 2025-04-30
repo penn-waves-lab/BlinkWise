@@ -1,0 +1,52 @@
+# Development and data directories
+.git/
+.idea/
+.vscode/
+data/
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+notebooks/.ipynb_checkpoints/
+
+# Model artifacts and data (since they'll be mounted)
+*.h5
+*.tflite
+*.pb
+*.ckpt
+*.pth
+checkpoints/
+
+# Local environment
+.env
+.venv/
+venv/
+env/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Project specific files that don't need to be in build context
+*.log
+*.csv
+*.json
+!configs/example_config.json  # Keep example config
+*.zip
+*.tar
+*.gz
+
+# Documentation and media (optional, include if they're not needed during build)
+*.pdf
+*.md
+!README.md  # Keep README
+assets/
