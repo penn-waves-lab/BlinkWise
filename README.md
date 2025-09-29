@@ -4,6 +4,7 @@ The official repo of BlinkWise: Tracking Blink Dynamics and Mental States on Gla
 
 ## Updates
 
+- **2025-09-29**: The paper is online at: https://dl.acm.org/doi/10.1145/3711875.3729150.
 - **2025-04-30**: Initial release of the BlinkWise codebase.
 
 ## Installation
@@ -276,12 +277,17 @@ This project is licensed under the BSD 3-Clause License - see the [LICENSE](LICE
 
 If you find this work useful, please consider citing:
 
-```
-@inproceedings{BlinkWise,
-  author = {Hu, Dongyin and Yang, Xin and Yuh, Ahhyun and Wang, Zihao and Al-Aswad, Lama A. and Lee, Insup and Zhao, Mingmin},
-  title = {Tracking Blink Dynamics and Mental States on Glasses},
-  booktitle = {Annual International Conference on Mobile Systems, Applications and Services (MobiSys)},
-  year = {2025},
-  doi = {10.1145/3711875.3729150},
+```BibTeX
+@inproceedings{blinkwise,
+   title = {Tracking Blink Dynamics and Mental States on Glasses},
+   author = {Hu, Dongyin and Yang, Xin and Yuh, Ahhyun and Wang, Zihao and Al-Aswad, Lama A. and Lee, Insup and Zhao, Mingmin},
+   year = {2025},
+   doi = {10.1145/3711875.3729150},
+   booktitle = {Proceedings of the 23rd Annual International Conference on Mobile Systems, Applications and Services},
+   pages = {291–304},
+   numpages = {14},
+   keywords = {RF sensing, eye blinks, edge computing, wearable health monitoring, mental states},
+   location = {Hilton Anaheim, Anaheim, CA, USA},
+   series = {MobiSys '25}
 }
 ```
